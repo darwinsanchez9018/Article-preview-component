@@ -1,0 +1,264 @@
+:root {
+    --dark-blue: hsl(217, 19%, 35%);
+    --desaturated-blue: hsl(214, 17%, 51%);
+    --grayish-blue: hsl(212, 23%, 69%);
+    --light-blue: hsl(210, 46%, 95%);
+}
+
+body {
+    margin: 0;
+    background-color: var(--light-blue);
+    color: var(--desaturated-blue);
+    font-size: 13px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    display: grid;
+    place-items: center;
+    padding: 75px 10px 80px 10px;
+}
+
+
+.header {
+    height: 222px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+
+.header__image {
+    max-width: 100%;
+    position: relative;
+    top: -15px;
+}
+
+.article {
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
+.article__title {
+    margin: 0;
+    color: var(--dark-blue);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.6rem;
+    padding: 40px 33px 0px 33px;
+}
+
+.article__text {
+    font-size: .91rem;
+    line-height: 1.5rem;
+    margin-bottom: 40px;
+    padding: 0px 33px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 33px 20px;
+}
+
+.footer__avatar {
+    border-radius: 50%;
+    width: 45px;
+    margin-right: 15px;
+}
+
+.footer__info {
+    width: 175px;
+}
+
+.footer__name {
+    margin: 0;
+    padding: 5px;
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+.footer__date {
+    margin: 0;
+    padding: 0 5px;
+    color: var(--grayish-blue);
+}
+
+/* Button */
+.share {
+    display: flex;
+    position: absolute;
+    right: 33px;
+    background-color: var(--light-blue);
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+/* Disable button */
+.share--active {
+    background-color: var(--desaturated-blue)
+}
+
+/* Enable button */
+.share--active .share__icon {
+    filter: brightness(100);
+}
+
+
+/* Tooltip */
+.tooltip {
+    display: flex;
+    width: 100%;
+    background-color: var(--dark-blue);
+    align-items: center;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    height: 80px;
+    padding: 0 33px;
+    bottom: -2px;
+    transition: opacity 0.5s;
+    
+}
+
+.tooltip__text {
+    letter-spacing: 5px;
+    color: var(--grayish-blue);
+    margin-right: 25px;
+    margin-bottom: 10px;
+
+}
+
+.tooltip__icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 105px;
+    margin-bottom: 10px;
+}
+
+.tooltip--show {
+    opacity: 1;
+}
+
+
+/* iPad */
+@media screen and (min-width: 768px) {
+    body {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 200px 155px;
+    }
+
+    .header {
+        height: 280px;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .article {
+        border-radius: 0 10px 10px 0;
+    }
+}
+
+
+/* desktop */
+@media screen and (min-width: 1390px) {
+    body {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 260px 355px;
+    }
+
+    .header {
+        height: 280px;
+        width: 80%;
+        border-radius: 10px 0 0 10px;
+        margin-left: -70px;
+
+    }
+
+    .header__image {
+        top: 0px;
+        height: 280px;
+        object-fit: cover;
+        object-position:left;
+    }
+
+    .article {
+        border-radius: 0 10px 10px 0;
+        width: 120%;
+        align-items: center;
+        height: 280px;
+        z-index: 10;
+        margin-left: -80px;
+    }
+
+    .article__title {
+        padding: 38px 40px 0px 40px;
+        font-size: 1.3rem;
+        line-height: 1.7rem;
+    }
+
+    .article__text {
+        font-size: .82rem;
+        line-height: 1.2rem;
+        padding: 0px 40px;
+        margin-bottom: 0;
+    }
+
+    .footer {
+        padding: 16px 40px 16px;
+        position: absolute;
+        width: 360px;
+    }
+    .footer__name {
+        width: 120px;
+    }
+
+    .footer__date {
+        width: 120px;
+    }
+
+    .share {
+        margin-right: 10px;
+    }
+
+
+    .tooltip {
+        position: relative;
+        height: 30px;
+        padding: 12px 30px;
+        left: 22px;
+        bottom: 72px;
+        border-radius: 10px;
+    }
+
+    .tooltip__text {
+        margin-bottom: 0px;
+    
+    }
+    
+    .tooltip__icons {
+        margin-bottom: 0px;
+    }
+
+    .tooltip__triangle {
+        position: absolute;
+        width: 25px;
+        height: 20px;
+        background-color: var(--dark-blue);
+        /* The points are: centered top, left bottom, right bottom */
+        clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+        margin-top: 70px;
+        margin-left: 84px;
+    }
+}
+
+.attribution {
+    position: relative;
+    font-size: 11px;
+    align-items: center;
+    top: 50px;
+}
+.attribution a {
+    color: var(--dark-blue);
+    text-decoration: none;
+}
